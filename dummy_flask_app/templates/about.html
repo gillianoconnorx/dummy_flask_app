@@ -1,7 +1,112 @@
 {% extends "layout.html" %}
 {% block content %}
-   <div class="about">
-     <h1>About Niamh</h1>
-     <p>She is lazy and i had to do all this.</p>
-   </div>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<title> Contact US </title>
+		
+	</head>
+
+<body>	
+		<img src="/static/Graphics/contactus.jpg" width="100%" height="250px" >
+			
+			<table align="center">
+				<tr><td class="menu"><p><h3 style="font-size:60px; color:blue;"><b>Customer Support</b></h3></p></td></tr>
+			</table>
+		
+	
+		<div class="contact">
+
+		<p> <img src="/static/Graphics/email.png" align="center"> <h2>  E-mail Support </h2></p>
+		<p> Monday to Friday | 9am to 6pm. </p>
+		<p> <a href = "http://www.samsung.com/ie/support/erms1" target="_blank"> Samsung Email Form </a></p>
+		</div>
+		
+		<div class="contact">
+		<p> <img src="/static/Graphics/facebook.png" align="center"> <h2> 	Facebook Support </h2></p>
+		<p> Monday to Friday | 9am to 6pm. </p>
+		<p> <a href = "https://www.facebook.com/SamsungUK/" target="_blank"> Chat with us on facebook </a></p>
+		</div>
+		
+		<div class="contact">
+		
+		<p> <img src="/static/Graphics/twitter.png" align="center"> <h2> 	Twitter Support </h2></p>
+		<p> Monday to Friday | 9am to 6pm. </p>
+		<p> <a href = "https://twitter.com/SamsungIreland" target= "_blank"> Chat with us on Twitter </a></p>
+		
+		</div>
+		
+		<div class="contact2">
+		<p> <img src="/static/Graphics/phone.png" align="center"> <h2> Phone Support </h2> </p>
+		<p align="left">0818 717 100</p>
+		<p> Monday to Saturday | 9am to 6pm </p>
+		<p>B2B and Print Support | Monday to Friday 9am to 6pm</p>
+		</div>
+		
+		<div class="contact2">
+		<p> <img src="Graphics/writetous.png" align="center"> <h2> Write To Us  </h2></p>
+		<p>Samsung Customer Support</p>
+		<p>	Selectapost 38</p>
+		<p>	Sheffield, S97 3FJ</p>
+    </div>
+  <head> 
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <h1>Stores near you!</h1>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCnoUZ4a7u9wAvUPRyfx5rgIyJ-_Ri02Wo" type="text/javascript"></script>
+  </head>
+  <body>
+    <div id="map" style="width: 500px; height: 400px;"></div>
+    <style type="text/css">
+    div#map { margin: 0 auto 0 auto; }
+    </style>
+  
+    <div id="map"><!-- contains map --></div>
+    <script type="text/javascript">
+      var locations = [
+        ['The Carphone Warehouse', 53.350713, -6.258723, 16],
+        ['The Carphone Warehouse', 53.293909, -6.244647, 15],
+        ['The Carphone Warehouse', 53.353622, -6.267528, 14],
+        ['The Carphone Warehouse', 53.347255, -6.267014, 13],
+        ['The Carphone Warehouse', 53.344539, -6.260426, 12],
+        ['The Carphone Warehouse', 53.339201, -6.265759, 11],
+        ['The Carphone Warehouse', 53.328428, -6.254935, 10],
+        ['The Carphone Warehouse', 53.348405, -6.263879, 9],
+        ['The Carphone Warehouse', 53.339489, -6.266283, 8],
+        ['The Carphone Warehouse', 53.345024, -6.259931, 7],
+        ['The Carphone Warehouse', 53.325855, -6.251348, 6],
+        ['The Carphone Warehouse', 53.348658, -6.276918, 5],
+        ['The Carphone Warehouse', 53.342663, -6.262906, 4],
+        ['The Carphone Warehouse', 53.349630, -6.260395, 3]
+        ['The Carphone Warehouse', 53.345275, -6.263743, 2]
+        ['The Carphone Warehouse', 53.337742, -6.265717, 1]
+      ];
+  
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 14,
+        center: new google.maps.LatLng(53.350713, -6.258723),
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      });
+  
+      var infowindow = new google.maps.InfoWindow();
+  
+      var marker, i;
+  
+      for (i = 0; i < locations.length; i++) {
+        marker = new google.maps.Marker({
+          position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+          map: map
+        });
+  
+        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+          return function() {
+            infowindow.setContent(locations[i][0]);
+            infowindow.open(map, marker);
+          }
+        })(marker, i));
+      }
+    </script>
+</body>
+
+
+</html>
  {% endblock %}
